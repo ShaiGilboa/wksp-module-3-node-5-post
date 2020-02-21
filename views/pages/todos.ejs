@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+    <form method="POST" action="/data">
+        <label for="todo-item">To do item</label>
+        <input type="text" name="item">
+        <button type="submit">submit</button>
+    </form>
+    <%- include('../partials/todoList') %>
+<%- include('../partials/footer') %>

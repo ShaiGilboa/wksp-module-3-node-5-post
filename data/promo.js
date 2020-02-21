@@ -1,11 +1,11 @@
 const stock = {
-    'bottles': '229',
+    'bottle': '229',
     'socks': '342',
     'shirt': {
         'small': '45',
         'medium': '0',
         'large': '21',
-        'xlarge': '19',
+        'extralarge': '19',
     }
 }
 
@@ -30,6 +30,16 @@ const customers = [
         'postcode': 'M5C 2E4',
         'country': 'Canada',
     },
+    {
+        'givenName': 'B',
+        'surname': 'B',
+        'email': 'B@B',
+        'address': 'B',
+        'city': 'Montreal',
+        'province': 'Quebec',
+        'postcode': 'H8H 1H1',
+        'country': 'B',
+    }
 ]
 
 module.exports = { stock, customers };
