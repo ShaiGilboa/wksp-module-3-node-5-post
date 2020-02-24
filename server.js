@@ -57,7 +57,7 @@ const checkCountryValidity = (country) => {
 
 const handleOrder = (req, res) => {
     const{ order, size, givenName, surname, email, address, city, province, postcode, country} = req.body;
-    if( order === "undefined"){
+    if( order === "undefined" || (order === 'shirt' && size === 'undefined')){
         res.send({'status': 'error', 'error': '000'})
     } else {
         if(checkIdentityValidity(givenName, surname, address)){
@@ -70,13 +70,28 @@ const handleOrder = (req, res) => {
             newUser = {givenName,surname,email,address,city,province,postcode,country};
             customers.push(newUser);
             newOrder = {order,size};
+            switch (order) {
+                case 'shirt':
+                newOrder.imgUrl = "/order-form/assets/tshirt.png"
+                break;
+                case 'bootle':
+                newOrder.imgUrl = "/order-form/assets/bottle.png"
+                break;
+                case 'socks':
+                newOrder.imgUrl = "/order-form/assets/socks.jpg"
+                break;
+            }
             res.send({'status': 'success'});
         }
     } 
 }
 
 const handleConfirmation = (req, res) => {
-    res.send('name '+newUser.givenName+' '+newUser.surname)
+    res.render('pages/confirmation', {
+        title: 'confirmation',
+        user: newUser,
+        order: newOrder
+    })
 }
 
 express()

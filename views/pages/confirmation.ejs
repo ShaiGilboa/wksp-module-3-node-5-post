@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+    <h1>Hello <%- user.givenName %> <%- user.surname %>!</h1>
+    <p> Thank you for purchasing a 
+        <% if (order.order === 'shirt') { %>
+            <%- order.size %>
+        <% } %>
+         <%- order.order %>
+    <img src = '<%- order.imgUrl %>' alt="">
+    </p>
+    <p>We will ship it to <%- user.address %></p>
+    <a href="/order-form">Would you like to make another purchase?</a>
+<%- include('../partials/footer') %>
